@@ -85,3 +85,18 @@ document.getElementById('tabs').addEventListener('click', e => {
 })
 
 
+const sendButton = document.querySelector('#send-button');
+const emailInput = document.querySelector('#email-input');
+
+sendButton.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevenir que el formulario se envíe automáticamente
+  if (emailInput.checkValidity()) {
+    // Enviar solicitud
+    const messageElement = document.createElement('p');
+    messageElement.innerText = 'La solicitud fue realizada por favor revise su correo';
+    document.body.appendChild(messageElement);
+  } else {
+    // Mostrar mensaje de error
+    alert('Por favor ingresa un email válido');
+  }
+});
