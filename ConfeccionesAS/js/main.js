@@ -92,7 +92,7 @@ sendButton.addEventListener('click', (event) => {
   event.preventDefault(); // Prevenir que el formulario se envíe automáticamente
   if (emailInput.checkValidity()) {
     // Enviar solicitud
-    const messageElement = document.createElement('p');
+    const messageElement = document.createElement('@');
     messageElement.innerText = 'La solicitud fue realizada por favor revise su correo';
     document.body.appendChild(messageElement);
   } else {

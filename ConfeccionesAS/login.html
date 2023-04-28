@@ -139,34 +139,39 @@
             <h2>"Nunca es suficiente ropa, El placer de vestir bien"</h2>
         </div>
     </div>
-
     <div class="container">
-        <div class="columns">
-            <div class="column">
-                <h2 class="is-size-4">Iniciar sesión</h2>
-                <form action="#" class="form-control">
-
-                    <input type="email" placeholder="Email" class="form-control-field error">
-
-                    <input type="password" placeholder="Password" class="form-control-field">
-
-                    <button class="btn btn-default btn-primary">Iniciar sesión</button>
-                </form>
+        <div class="columns is-centered">
+          <div class="column is-one-third">
+            <div class="box">
+              <h2 class="title is-4 has-text-centered">Inicio de sesión</h2>
+              <form action="#" class="form-control">
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input type="email" placeholder="Ingresa tu email" class="input" id="email-input">
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Contraseña</label>
+                  <div class="control">
+                    <input type="password" placeholder="Ingresa tu contraseña" class="input" id="password-input">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-primary is-fullwidth" id="login-button">Iniciar sesión</button>
+                  </div>
+                </div>
+                <div class="has-text-centered">
+                  <a href="RestPass.html" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                </div>
+              </form>
             </div>
-            <div class="column">
-                <h2 class="is-size-4">Registro</h2>
-                <form action="#" class="form-control">
-                    <input type="email" placeholder="Email" class="form-control-field">
-
-                    <input type="password" placeholder="Password" class="form-control-field">
-
-                    <input type="password" placeholder="Confirma tu password" class="form-control-field">
-
-                    <button class="btn btn-default btn-primary">Crear cuenta</button>
-                </form>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
+      
 
     <!-- footer -->
     <footer class="footer">
