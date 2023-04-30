@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/material-design-iconic-font.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Confecciones AS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <nav class="navbar-top">
             <ul class="navbar-top-ul">
                 <li class="navbar-top-item">
-                    <a href="login.html" class="navbar-top-links">Registro</a>
+                    <a href="Resgis.html" class="navbar-top-links">Registro</a>
                 </li>
                 <li class="navbar-top-item">
                     <a href="login.html" class="navbar-top-links">Iniciar sesión</a>
@@ -141,58 +142,65 @@
     </div>
     <div class="container">
         <div class="columns is-centered">
-          <div class="column is-one-third">
-            <div class="box">
-              <h2 class="title is-4 has-text-centered">Registro</h2>
-              <form action="#" class="form-control">
-                <div class="field">
-                  <label class="label">Nombre</label>
-                  <div class="control">
-                    <input type="text" placeholder="Ingresa tu nombre" class="input" id="name-input">
-                  </div>
+            <div class="column is-one-third">
+                <div class="box">
+                    <h2 class="title is-4 has-text-centered">Registro</h2>
+                    <form action="#" class="form-control">
+                        <div class="field">
+                            <label class="label">Nombre</label>
+                            <div class="control">
+                                <input type="text" placeholder="Ingresa tu nombre" class="input" id="name-input">
+                            </div>
+                            <p class="help is-danger" id="name-validation"></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Apellido</label>
+                            <div class="control">
+                                <input type="text" placeholder="Ingresa tu apellido" class="input" id="surname-input">
+                            </div>
+                            <p class="help is-danger" id="surname-validation"></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input type="email" placeholder="Ingresa tu email" class="input" id="email-input">
+                            </div>
+                            <p class="help is-danger" id="email-validation"></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Teléfono</label>
+                            <div class="control">
+                                <input type="tel" placeholder="9 3121 3221" class="input" id="phone-input">
+                            </div>
+                            <p class="help is-danger" id="phone-validation"></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Contraseña</label>
+                            <div class="control">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="input"
+                                    id="password-input">
+                            </div>
+                            <p class="help is-danger" id="password-validation"></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Confirmar contraseña</label>
+                            <div class="control">
+                                <input type="password" placeholder="Confirma tu contraseña" class="input"
+                                    id="confirm-password-input">
+                            </div>
+                            <p class="help is-danger" id="confirm-password-validation"></p>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary is-fullwidth" id="register-button">Registrar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="field">
-                  <label class="label">Apellido</label>
-                  <div class="control">
-                    <input type="text" placeholder="Ingresa tu apellido" class="input" id="surname-input">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
-                    <input type="email" placeholder="Ingresa tu email" class="input" id="email-input">
-                  </div>
-                </div>
-                <div class="field">
-                    <label class="label">Telefono</label>
-                    <div class="control">
-                      <input type="tel" placeholder="+56" class="input" id="email-input">
-                    </div>
-                  </div>
-                <div class="field">
-                  <label class="label">Contraseña</label>
-                  <div class="control">
-                    <input type="password" placeholder="Ingresa tu contraseña" class="input" id="password-input">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Confirmar contraseña</label>
-                  <div class="control">
-                    <input type="password" placeholder="Confirma tu contraseña" class="input" id="confirm-password-input">
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="control">
-                    <button class="button is-primary is-fullwidth" id="register-button">Registrar</button>
-                  </div>
-                </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-      
-      
+    </div>
+
 
     <!-- footer -->
     <footer class="footer">
@@ -278,6 +286,78 @@
             </div>
         </div>
     </footer>
+    <script>
+        $(document).ready(function () {
+            $('#register-button').click(function (e) {
+                e.preventDefault();
+
+                var name = $('#name-input').val();
+                var surname = $('#surname-input').val();
+                var email = $('#email-input').val();
+                var phone = $('#phone-input').val();
+                var password = $('#password-input').val();
+                var confirmPassword = $('#confirm-password-input').val();
+
+                var nameRegex = /^[a-zA-Z].{3,}$/;
+                var emailRegex = /^\S+@\S+\.\S+.{3,}$/;
+                var phoneRegex = /^\d.{8,}$/;
+                var passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+                if (name == '') {
+                    alert('Por favor ingresa tu Nombre.');
+                    return false;
+                } else if (!nameRegex.test(name)) {
+                    alert('El Nombre solo puede contener letras minimo (4).');
+                    return false;
+                }
+
+                if (surname == '') {
+                    alert('Por favor ingresa tu apellido.');
+                    return false;
+                } else if (!nameRegex.test(surname)) {
+                    alert('El apellido solo puede letras minimo (4).');
+                    return false;
+                }
+
+                if (email == '') {
+                    alert('Por favor ingresa tu correo electrónico.');
+                    return false;
+                } else if (!emailRegex.test(email)) {
+                    alert('Ingresa un correo electrónico válido.');
+                    return false;
+                }
+
+                if (phone == '') {
+                    alert('Por favor ingresa tu número de teléfono.');
+                    return false;
+                } else if (!phoneRegex.test(phone)) {
+                    alert('Porfavor ingrese un nuemero telefonico valido (9 xxx xxx) sin letras .');
+                    return false;
+                }
+
+                if (password == '') {
+                    alert('Por favor ingresa tu contraseña.');
+                    return false;
+                } else if (!passwordRegex.test(password)) {
+                    alert('La contraseña debe contener al menos 8 caracteres, 1 número y 1 carácter especial.');
+                    return false;
+                }
+
+                if (confirmPassword == '') {
+                    alert('Por favor confirma tu contraseña.');
+                    return false;
+                } else if (confirmPassword != password) {
+                    alert('Las contraseñas no coinciden.');
+                    return false;
+                }
+
+                // Si se llega a este punto, todos los campos están validados correctamente
+                alert('Formulario validado correctamente.');
+                return true;
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 
 

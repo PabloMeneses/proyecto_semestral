@@ -139,31 +139,57 @@
             <h2>"Nunca es suficiente ropa, El placer de vestir bien"</h2>
         </div>
     </div>
-    <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-one-third">
-            <div class="box">
-              <h2 class="title is-4 has-text-centered">Recuperar contraseña</h2>
-              <form action="#" class="form-control">
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
-                    <input type="email" placeholder="Ingresa tu email" class="input" id="email-input">
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="control">
-                    <button class="button is-primary is-fullwidth" id="send-button">Enviar</button>
-                  </div>
-                </div>
-              </form>
+    <div class="columns is-multiline is-centered align-items-center is-flex">
+        <div class="column is-one-quarter">
+            <figure class="image is-128x128 is-rounded">
+                <img src="admin/assets/img/avar2.jpg" alt="Foto de perfil" id="profile-pic">
+            </figure>
+            <br>
+            <div class="file is-centered">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="profile-pic" id="profile-pic-input">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Cambiar foto de perfil
+                        </span>
+                    </span>
+                </label>
             </div>
-          </div>
         </div>
-      </div>
-      
-      
-      
+        <div class="column is-three-quarters">
+            <form>
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Juan Pérez" value="Fixa Pilar">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Fixa.Pilar@gmail.com"
+                            value="Fixa.Pilar@gmail.com">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Dirección</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Arturo Pratt 343, Santiago"
+                            value="Arturo Pratt 343, Santiago">
+                    </div>
+                </div>
+                <div class="buttons is-centered">
+                    <button class="button is-link">Guardar cambios</button>
+                    <button class="button is-danger">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 
     <!-- footer -->
     <footer class="footer">
@@ -249,6 +275,19 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.querySelector('.is-link').addEventListener('click', function() {
+          // Aquí puedes agregar el código para enviar los datos del formulario al servidor
+          // Una vez que se hayan guardado los cambios, puedes mostrar un mensaje de éxito
+          alert('Cambios guardados exitosamente!');
+        });
+      
+        document.querySelector('.is-danger').addEventListener('click', function() {
+          // Aquí puedes agregar el código para redirigir al usuario al index.html
+          window.location.href = 'index.html';
+        });
+    </script>>
+      
     <script src="js/main.js"></script>
 
 
