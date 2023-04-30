@@ -1157,50 +1157,118 @@ footer {
     padding: 0 0 0 1rem;
 }
 
-.formulario {
-    background-color: whitesmoke;
-    width: min( 600px, 100% ); /** Utilizar el valor más pequeño **/
+/* Estilos generales del formulario */
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.formulario fieldset {
-    border: none;
-}
-.formulario legend {
-    text-align: center;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 700;
+    max-width: 600px;
+    padding: 30px;
+  }
+  
+  /* Estilos de los grupos de inputs */
+  .grupo {
     margin-bottom: 20px;
-    color: rgb(238,59,125);
-}
-
-.campo {
-    margin-bottom: 1rem;
-}
-.campo label {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-bottom: .50px;
-    display: block;
-}
-.campo textarea {
-    height: 100px;
-}
-
-.input-text {
+    position: relative;
     width: 100%;
+  }
+  
+  /* Estilos de los inputs */
+  input,
+  textarea {
     border: none;
-    padding: 15px;
-    border-radius: .50px;
-}
-
-@media screen and (min-width: 768px) {
-    .formulario {
-        display: flex;
-        flex-direction: column;
-        width: auto;
-    }
-}
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    padding: 10px 5px;
+    width: 100%;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-bottom: 2px solid #000;
+    outline: none;
+  }
+  
+  /* Estilos de las etiquetas */
+  label {
+    color: #888;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+  }
+  
+  /* Estilos de las barras */
+  .barra {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  
+  .barra:before,
+  .barra:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: #000;
+    transition: 0.2s ease all;
+  }
+  
+  .barra:before {
+    left: 50%;
+  }
+  
+  .barra:after {
+    right: 50%;
+  }
+  
+  input:focus ~ .barra:before,
+  input:focus ~ .barra:after {
+    width: 50%;
+  }
+  
+  input:valid ~ .barra:before,
+  input:valid ~ .barra:after {
+    width: 50%;
+  }
+  
+  input:focus ~ label,
+  input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #000;
+  }
+  
+  /* Estilos del botón */
+  button[type="submit"] {
+    background-color: #00D182; /* Cambia el color del botón */
+    display: block; /* Hace que el botón sea un bloque */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    transition: 0.2s ease all;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #fff;
+    color: #00D182;
+  }
+  
+  /* Estilos de las advertencias */
+  .warnings {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
