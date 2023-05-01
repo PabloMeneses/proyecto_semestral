@@ -5,20 +5,20 @@
     font-family: 'Open Sans';
 }
 
-header{
-    background: url(img/AS2.png);
+
+header {
+    background-image: url(img/AS2.png);
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
-    max-width: 100%;
-    height: 100vh;
+    height: 400px; /* Ajusta la altura de la imagen según tus necesidades */
 }
 
-
-@media screen and (min-width: 1023px) {
-    header{
-        background-image: url(img/AS2.png);
+@media only screen and (max-width: 767px) { /* Cambia el tamaño de la imagen si la pantalla es menor a 767px */
+    header {
+        height: 200px;
     }
 }
+
 
 .contenedor{
     max-width: 1200px;
