@@ -1270,4 +1270,18 @@ footer {
     margin-top: 10px;
     text-align: center;
   }
-  
+  /* Estilo para los mensajes de error */
+  .error-message {
+      color: red;
+      font-weight: bold;
+  }
+
+  /* Estilo para los campos inválidos */
+  input.invalid {
+      border: 2px solid red;
+  }
+
+  /* Estilo para los campos válidos */
+  input.valid {
+      border: 2px solid green;
+  }
