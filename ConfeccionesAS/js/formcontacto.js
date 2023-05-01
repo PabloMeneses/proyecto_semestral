@@ -47,7 +47,9 @@ form.addEventListener('submit', e => {
   }
 
   if (isValid) {
-    form.submit();
+    alert('El mensaje ha sido enviado exitosamente');
+    form.reset(); // Reinicia los campos del formulario
+    warnings.innerText = ''; // Vacía los warnings
   } else {
     warnings.innerText = warningMessage;
   }
