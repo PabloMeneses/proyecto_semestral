@@ -6,19 +6,28 @@
 }
 
 
-header {
-    background-image: url(img/AS2.png);
+.banner-cover {
+    background-image: url(/ConfeccionesAS/Carrito/img/banner-productos.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px; /* Ajusta la altura de la imagen según tus necesidades */
+    max-width: 100%;
+    height: 100vh; 
+    
+
 }
 
-@media only screen and (max-width: 767px) { /* Cambia el tamaño de la imagen si la pantalla es menor a 767px */
+@media screen and (min-width: 1023px) {
     header {
-        height: 200px;
+        background-image: url(/ConfeccionesAS/Carrito/img/AS2.png);
     }
 }
 
+
+#Titulo{
+    margin-top: 500px;
+    font-size: 80px;
+    
+}
 
 .contenedor{
     max-width: 1200px;
