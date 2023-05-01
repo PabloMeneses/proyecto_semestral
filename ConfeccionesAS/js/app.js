@@ -1,3 +1,4 @@
+//Variable que mantiene el estado visible del carrito
 var carritoVisible = false;
 
 //Espermos que todos los elementos de la pàgina cargen para ejecutar el script
@@ -8,7 +9,7 @@ if(document.readyState == 'loading'){
 }
 
 function ready(){
-
+    
     //Agregremos funcionalidad a los botones eliminar del carrito
     var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
     for(var i=0;i<botonesEliminarItem.length; i++){
@@ -58,9 +59,10 @@ function agregarAlCarritoClicked(event){
     var titulo = item.getElementsByClassName('titulo-item')[0].innerText;
     var precio = item.getElementsByClassName('precio-item')[0].innerText;
     var imagenSrc = item.getElementsByClassName('img-item')[0].src;
+    var color = item.getElementsByClassName('select-color')[0].innerText;
     console.log(imagenSrc);
 
-    agregarItemAlCarrito(titulo, precio, imagenSrc);
+    agregarItemAlCarrito(titulo, precio, imagenSrc,color);
 
     hacerVisibleCarrito();
 }
@@ -92,22 +94,24 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc){
     }
 
     var itemCarritoContenido = `
-        <div class="carrito-item">
-            <img src="${imagenSrc}" width="80px" alt="">
-            <div class="carrito-item-detalles">
-                <span class="carrito-item-titulo">${titulo}</span>
-                <div class="selector-cantidad">
-                    <i class="fa-solid fa-minus restar-cantidad"></i>
-                    <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                    <i class="fa-solid fa-plus sumar-cantidad"></i>
-                </div>
-                <span class="carrito-item-precio">${precio}</span>
+    <div class="carrito-item">
+        <img src="${imagenSrc}" width="80px" alt="">
+        <div class="carrito-item-detalles">
+            <span class="carrito-item-titulo">${titulo}</span>
+            <div class="selector-cantidad">
+                <i class="fa-solid fa-minus restar-cantidad"></i>
+                <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                <i class="fa-solid fa-plus sumar-cantidad"></i>
             </div>
-            <button class="btn-eliminar">
-                <i class="fa-solid fa-trash"></i>
-            </button>
+            <span class="carrito-item-precio">${precio}</span>
         </div>
-    `
+
+        <button class="btn-eliminar">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </div>
+`;
+
     item.innerHTML = itemCarritoContenido;
     itemsCarrito.append(item);
 
@@ -167,7 +171,7 @@ function ocultarCarrito(){
         carrito.style.marginRight = '-100%';
         carrito.style.opacity = '0';
         carritoVisible = false;
-
+    
         var items =document.getElementsByClassName('contenedor-items')[0];
         items.style.width = '100%';
     }
@@ -194,3 +198,11 @@ function actualizarTotalCarrito(){
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") + ",00";
 
 }
+
+
+
+
+
+
+
+
