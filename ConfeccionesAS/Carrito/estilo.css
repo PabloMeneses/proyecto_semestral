@@ -22,11 +22,12 @@
 }
 
 
-#Titulo{
+.titulo-banner{
     margin-top: 500px;
     font-size: 80px;
     
 }
+
 
 .contenedor{
     max-width: 1200px;
