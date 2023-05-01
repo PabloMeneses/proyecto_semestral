@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/material-design-iconic-font.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Confecciones AS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -145,13 +146,17 @@
                     <br>
                     <form action="" method="POST" id="form">
                         <div class="form">
-                            <div class="grupo">
-                                <input type="email" name="email" id="email" required>
-                                <span class="barra"></span>
-                                <label for="email">Correo</label>
-                                <p class="warnings" id="email-warnings"></p>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="email" placeholder="Ingresa tu correo electrónico" class="input" id="email-input">
+                                    <label class="label">Correo electrónico</label>
+                                </div>
                             </div>
-                            <button type="submit" id="login-button" disabled>Enviar</button>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary is-fullwidth" id="register-button">Enviar</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -244,6 +249,26 @@
             </div>
         </div>
     </footer>
+    <script>
+        $(document).ready(function () {
+            $('#register-button').click(function (e) {
+                e.preventDefault();
+                var email = $('#email-input').val();
+    
+                var emailRegex = /^\S+@\S+\.\S+.{2,}$/;
+                if (email == '') {
+                    alert('Por favor ingresa tu correo electrónico.');
+                    return false;
+                } else if (!emailRegex.test(email)) {
+                    alert('Ingresa un correo electrónico válido.'); 
+                    return false;
+                }
+                // Si se llega a este punto, todos los campos están validados correctamente
+                alert('solicitud aceptada , Porfavor revise su correo electronico  ');
+                return true;
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 
 
