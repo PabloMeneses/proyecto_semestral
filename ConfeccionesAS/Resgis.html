@@ -84,31 +84,36 @@
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input type="email" placeholder="Ingresa tu correo electrónico" class="input" id="email-input">
+                                <input type="email" placeholder="Ingresa tu correo electrónico" class="input"
+                                    id="email-input">
                                 <label class="label">Correo electrónico</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input type="email" placeholder="Verifica tu correo electrónico" class="input" id="verify-email-input">
+                                <input type="email" placeholder="Verifica tu correo electrónico" class="input"
+                                    id="verify-email-input">
                                 <label class="label">Verificar correo electrónico</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input type="text" placeholder="Ingresa tu número de teléfono" class="input" id="phone-input">
+                                <input type="text" placeholder="Ingresa tu número de teléfono" class="input"
+                                    id="phone-input">
                                 <label class="label">Número de teléfono</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="input" id="password-input">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="input"
+                                    id="password-input">
                                 <label class="label">Contraseña</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input type="password" placeholder="Confirma tu contraseña" class="input" id="confirm-password-input">
+                                <input type="password" placeholder="Confirma tu contraseña" class="input"
+                                    id="confirm-password-input">
                                 <label class="label">Confirmar contraseña</label>
                             </div>
                         </div>
@@ -122,7 +127,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     <!-- footer -->
@@ -162,7 +167,8 @@
                         <li class="footer-item"><a class="footer-link" href="#">Iniciar sesión</a></li>
                         <li class="footer-item"><a class="footer-link" href="#">Registro</a></li>
                         <li class="footer-item"><a class="footer-link" href="#">Ver carrito </a></li>
-                        <li class="footer-item"><a class="footer-link" href="EditarUs.html">Cambiar Datos de cuenta</a></li>
+                        <li class="footer-item"><a class="footer-link" href="EditarUs.html">Cambiar Datos de cuenta</a>
+                        </li>
                         <li class="footer-item"><a class="footer-link" href="#">Pedidos</a></li>
                     </ul>
                 </div>
@@ -222,7 +228,7 @@
                 var confirmPassword = $('#confirm-password-input').val();
 
                 var nameRegex = /^[a-zA-Z].{3,}$/;
-                var emailRegex = /^\S+@\S+\.\S+.{3,}$/;
+                var emailRegex = /^\S+@\S+\.\S+.{1,}$/;
                 var phoneRegex = /^\d.{8,}$/;
                 var passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
