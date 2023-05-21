@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/material-design-iconic-font.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Confecciones AS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                 </li>
                 <li class="navbar-top-item">
                     <a href="Usuario1.html" class="navbar-top-links">Mi cuenta</a>
-                </li> 
+                </li>
             </ul>
         </nav>
         <nav class="navbar">
@@ -69,29 +70,35 @@
         <div class="columns is-centered">
             <div class="column is-one-third">
                 <div class="box">
-                    <h2 class="title is-4 has-text-centered">¿Tienes alguna duda?</h2>
+                    <h2 class="title is-4 has-text-centered">Registro de usuario</h2>
                     <br>
                     <form action="" method="POST" id="form">
                         <div class="form">
                             <div class="grupo">
-                                <input type="text" name="nombre" id="name" required><span class="barra"></span>
+                                <input type="text" name="nombre" id="nombre" required>
+                                <span class="barra"></span>
                                 <label for="nombre">Nombre</label>
+                                <p class="warnings" id="nombre-warnings"></p>
+                            </div>
+
+                            <div class="grupo">
+                                <input type="text" name="telefon" id="telefon" value="9" required>
+                                <span class="barra"></span>
+                                <label for="telefon">Numero Telefono</label>
+                                <p class="warnings" id="telefon-warnings"></p>
                             </div>
                             <div class="grupo">
-                                <input type="email" name="email" id="email" required><span class="barra"></span>
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="grupo">
-                                <input type="tel" name="telefono" id="telefono" required><span class="barra"></span>
-                                <label for="telefono">Teléfono</label>
+                                <input type="email" name="email" id="email" required>
+                                <span class="barra"></span>
+                                <label for="email">Correo</label>
+                                <p class="warnings" id="email-warnings"></p>
                             </div>
                             <div class="grupo">
                                 <textarea name="message" id="message" placeholder="Mensaje" required></textarea><span
                                     class="barra"></span>
                                 <label for="mensaje"></label>
                             </div>
-                            <button type="submit">Contáctanos</button>
-                            <p class="warnings" id="warnings"></p>
+                            <button type="submit" id="login-button" disabled>Enviar</button>
                         </div>
                     </form>
                 </div>
@@ -110,11 +117,13 @@
                         <li class="footer-item">
                             <h3 class="has-text-weight-bold">Nuestra Empresa</h3>
                         </li>
-                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/marca.html">Acerca de</a></li>
+                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/marca.html">Acerca de</a>
+                        </li>
                         <li class="footer-item"><a class="footer-link" href="#">Servicios </a></li>
                         <li class="footer-item"><a class="footer-link" href="#">Privacidad y cookies</a></li>
                         <li class="footer-item"><a class="footer-link" href="#">Mapa del sitio</a></li>
-                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/admin/index.html">Acceso administrativo
+                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/admin/index.html">Acceso
+                                administrativo
                             </a></li>
                     </ul>
                 </div>
@@ -136,13 +145,16 @@
                         <li class="footer-item">
                             <h3 class="has-text-weight-bold">Tu cuenta</h3>
                         </li>
-                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/login.html">Iniciar sesión</a></li>
-                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/Resgis.html">Registro</a></li>
-                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/EditarUs.html">Cambiar Datos de cuenta</a>
+                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/login.html">Iniciar
+                                sesión</a></li>
+                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/Resgis.html">Registro</a>
+                        </li>
+                        <li class="footer-item"><a class="footer-link" href="/ConfeccionesAS/EditarUs.html">Cambiar
+                                Datos de cuenta</a>
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="column">
 
                     <ul class="footer-ul">
@@ -173,9 +185,96 @@
             </div>
         </div>
     </footer>
+    <script>
+        $(document).ready(function () {
+            $("#nombre").on("input", function () {
+                var nombre = $(this).val();
+                if (nombre == "") {
+                    $("#nombre-warnings").text("");
+                    $("#nombre").removeClass("invalid");
+                    $("#login-button").prop("disabled", true);
 
+                } else if (!isValidNombre(nombre)) {
+                    $("#nombre-warnings").text("Por favor ingrese un nombre valido (sin numeros ni !%&@) ");
+                    $("#nombre").addClass("invalid");
+                    $("#login-button").prop("disabled", true);
+                } else {
+                    $("#nombre-warnings").text("");
+                    $("#nombre").removeClass("invalid");
+                    $("#login-button").prop("disabled", false);
+                }
+            });
+            $("#telefon").on("input", function () {
+                var telefon = $(this).val();
+                if (telefon == "") {
+                    $("#telefon-warnings").text("");
+                    $("#telefon").removeClass("invalid");
+                    $("#login-button").prop("disabled", true);
+
+                } else if (!isValidTelefono(telefon)) {
+                    $("#telefon-warnings").text("Por favor ingrese un Telefono valido (9 xxxx xxxx)");
+                    $("#telefon").addClass("invalid");
+                    $("#login-button").prop("disabled", true);
+                } else {
+                    $("#telefon-warnings").text("");
+                    $("#telefon").removeClass("invalid");
+                    $("#login-button").prop("disabled", false);
+                }
+            });
+            $("#email").on("input", function () {
+                var email = $(this).val();
+                if (email == "") {
+                    $("#email-warnings").text("");
+                    $("#email").removeClass("invalid");
+                    $("#login-button").prop("disabled", true);
+                } else if (!isValidEmailAddress(email)) {
+                    $("#email-warnings").text("Por favor ingresa un correo válido (juanito@gmail.com)");
+                    $("#email").addClass("invalid");
+                    $("#login-button").prop("disabled", true);
+                } else {
+                    $("#email-warnings").text("");
+                    $("#email").removeClass("invalid");
+                    $("#login-button").prop("disabled", false);
+                }
+            });
+            function isValidEmailAddress(emailAddress) {
+                var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return pattern.test(emailAddress);
+            }
+
+            function isValidNombre(nombre) {
+                var pattern = /^[a-zA-ZÀ-ÿ\s]{2,40}$/;
+                return pattern.test(nombre);
+            }
+            function isValidTelefono(telefon) {
+                var pattern = /^[9]\d{8}$/;
+                return pattern.test(telefon);
+            }
+            $("#form").on("submit", function (event) {
+                event.preventDefault();
+                var email = $("#email").val();
+                var nombre = $("#nombre").val();
+                var telefon = $("#telefon").val();
+                var mensaje = $("#message").val();
+                // Verificar que todos los campos estén validados correctamente
+                if (isValidEmailAddress(email) && isValidNombre(nombre) && isValidTelefono(telefon)) {
+                    // Mostrar la alerta de confirmación
+                    alert("Nos contactaremos en la brevedad C: ");
+                    $("#email").val("");
+                    $("#nombre").val("");
+                    $("#telefon").val("");
+                    $("#message").val("");
+                    // Aquí puedes redirigir a la página correspondiente
+                } else {
+                    // Mostrar mensaje de error si las credenciales no son válidas
+                    alert("Por favor, complete todos los campos correctamente.");
+                }
+                // y redirigir a la página correspondiente
+                // o mostrar un mensaje de error en caso de que las credenciales no sean válidas
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
-    <script src="js/formcontacto.js"></script>
 
 
 </body>
